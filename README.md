@@ -27,6 +27,7 @@ cd email-automation
 
 Install dependencies:
 pip install -r requirements.txt
+define environment variables in a .env file
 
 Run the app:
 streamlit run script.py
