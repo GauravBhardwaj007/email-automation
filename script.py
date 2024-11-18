@@ -17,6 +17,12 @@ EMAIL_PASS = st.secrets["email"]["EMAIL_PASS"]
 LOGIN_USERNAME = st.secrets["login"]["LOGIN_USERNAME"]
 LOGIN_PASSWORD = st.secrets["login"]["LOGIN_PASSWORD"]
 
+# EMAIL_USER = os.getenv("EMAIL_USER")
+# EMAIL_PASS = os.getenv("EMAIL_PASS")
+# LOGIN_USERNAME = os.getenv("LOGIN_USERNAME")
+# LOGIN_PASSWORD = os.getenv("LOGIN_PASSWORD")
+
+
 # Ensure credentials are loaded
 if not EMAIL_USER or not EMAIL_PASS:
     st.error("invalid credentials for sender")
@@ -130,6 +136,7 @@ if 'logged_in' in st.session_state and st.session_state.logged_in:
                 server.ehlo()
                 server.starttls()
                 server.login(EMAIL_USER, EMAIL_PASS)
+            
 
                 # Create a list of emails to be sent after the button is clicked
                 st.session_state.scheduled_emails = st.session_state.recipients.copy()
